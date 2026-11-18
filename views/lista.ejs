@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= lista.nome %> · TodoList</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <h2>Minhas listas</h2>
+      <ul>
+        <% listas.forEach((nome) => { %>
+          <li><a href="<%= urlDa(nome) %>" class="<%= nome === lista.nome ? 'ativa' : '' %>"><%= nome %></a></li>
+        <% }) %>
+      </ul>
+      <form method="post" action="/listas" class="nova-lista">
+        <input name="nome" placeholder="Nova lista" aria-label="Nome da nova lista" required maxlength="40">
+        <button type="submit">Criar</button>
+      </form>
+    </aside>
+
+    <main class="cartao">
+      <header>
+        <h1><%= lista.nome %></h1>
+        <p><%= lista.itens.filter((i) => i.feito).length %> de <%= lista.itens.length %> concluídas</p>
+      </header>
+
+      <ul class="itens">
+        <% lista.itens.forEach((item) => { %>
+          <li class="<%= item.feito ? 'feito' : '' %>">
+            <form method="post" action="/<%= lista.nome %>/itens/<%= item._id %>/alternar">
+              <button class="check" aria-label="Alternar <%= item.nome %>"><%= item.feito ? '✓' : '' %></button>
+            </form>
+            <span><%= item.nome %></span>
+            <form method="post" action="/<%= lista.nome %>/itens/<%= item._id %>/excluir">
+              <button class="excluir" aria-label="Excluir <%= item.nome %>">×</button>
+            </form>
+          </li>
+        <% }) %>
+      </ul>
+
+      <form method="post" action="/<%= lista.nome %>/itens" class="novo-item">
+        <input name="item" placeholder="Nova tarefa" aria-label="Nova tarefa" required maxlength="120" autocomplete="off" autofocus>
+        <button type="submit" aria-label="Adicionar">+</button>
+      </form>
+
+      <% if (lista.nome !== 'hoje') { %>
+        <form method="post" action="/<%= lista.nome %>/excluir" onsubmit="return confirm('Excluir esta lista?')">
+          <button class="excluir-lista">Excluir lista</button>
+        </form>
+      <% } %>
+    </main>
+  </div>
+  <footer>Feito por Leonardo Carrilho · Node.js, Express, EJS e Mongoose</footer>
+</body>
+</html>

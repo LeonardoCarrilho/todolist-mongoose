@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; font-family: system-ui, sans-serif; background: linear-gradient(135deg, #e0eafc, #cfdef3); color: #1f2937; }
+.layout { max-width: 900px; margin: 0 auto; padding: 32px 16px; display: grid; grid-template-columns: 220px 1fr; gap: 24px; }
+@media (max-width: 680px) { .layout { grid-template-columns: 1fr; } }
+aside h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: .05em; color: #4b5563; }
+aside ul { list-style: none; padding: 0; margin: 0 0 16px; }
+aside a { display: block; padding: 6px 10px; border-radius: 6px; color: #1f2937; text-decoration: none; text-transform: capitalize; }
+aside a.ativa, aside a:hover { background: #fff; }
+.nova-lista, .novo-item { display: flex; gap: 8px; }
+input { flex: 1; min-width: 0; padding: 10px; border: 1px solid #cbd5e1; border-radius: 8px; font: inherit; }
+button { font: inherit; cursor: pointer; border: 0; border-radius: 8px; padding: 8px 14px; background: #6366f1; color: #fff; }
+.cartao { background: #fff; border-radius: 16px; box-shadow: 0 10px 30px #0001; overflow: hidden; }
+.cartao header { background: #6366f1; color: #fff; padding: 20px 24px; }
+.cartao h1 { margin: 0; text-transform: capitalize; }
+.cartao header p { margin: 4px 0 0; opacity: .85; }
+.itens { list-style: none; margin: 0; padding: 0; }
+.itens li { display: flex; align-items: center; gap: 12px; padding: 12px 24px; border-bottom: 1px solid #eef2f7; }
+.itens li span { flex: 1; word-break: break-word; }
+.itens li.feito span { text-decoration: line-through; color: #9ca3af; }
+.check { width: 26px; height: 26px; padding: 0; border: 2px solid #6366f1; background: #fff; color: #6366f1; border-radius: 6px; font-weight: 700; }
+.feito .check { background: #6366f1; color: #fff; }
+.excluir { background: none; color: #9ca3af; font-size: 1.4rem; padding: 0 6px; }
+.excluir:hover { color: #ef4444; }
+.novo-item { padding: 16px 24px; }
+.novo-item button { font-size: 1.3rem; padding: 6px 16px; }
+.excluir-lista { margin: 0 24px 16px; background: none; color: #ef4444; padding: 0; }
+footer { text-align: center; color: #4b5563; padding: 16px; font-size: .9rem; }
