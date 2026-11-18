@@ -20,3 +20,6 @@ Acesse http://localhost:3000
 Testes (não precisam de MongoDB instalado): `npm test`
 
 Projeto do módulo 40 do curso Full Stack Turbo (TipsCode).
+
+## Deploy na Vercel
+O arquivo `vercel.json` e a pasta `api/` fazem o projeto rodar como função serverless na Vercel. Na Vercel, configure `MONGODB_URI` (MongoDB Atlas) nas variáveis de ambiente do projeto.
