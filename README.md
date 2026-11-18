@@ -2,6 +2,8 @@
 
 Lista de tarefas com várias listas personalizadas, feita com **Node.js, Express, EJS, MongoDB e Mongoose**.
 
+🔗 **Ao vivo:** https://todolist-mongoose.vercel.app
+
 ## Funcionalidades
 - Lista padrão "hoje" criada com itens de boas-vindas
 - Adicionar, concluir e excluir tarefas
