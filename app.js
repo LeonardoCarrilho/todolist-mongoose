@@ -69,7 +69,8 @@ export function criarApp() {
 
   // Lista personalizada por parâmetro de rota
   app.get("/:lista", tentar(async (req, res, next) => {
-    if (req.params.lista === "favicon.ico") return res.status(204).end();
+    // Caminhos com ponto (favicon.png, robots.txt...) são arquivos pedidos por navegadores e robôs, não listas.
+    if (req.params.lista.includes(".")) return res.status(404).end();
     const nome = normalizar(req.params.lista);
     if (!nome) return res.redirect("/");
     if (nome !== req.params.lista) return res.redirect(urlDa(nome));
